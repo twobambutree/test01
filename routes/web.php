@@ -12,9 +12,17 @@
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/quotes', 'QuoteController@index')->name('quotes.index');
+
+Route::post('/quotestore', 'QuoteController@store')->name('quotes.store');
+
+//Route::post('/quotes', 'QuoteController@store');
+
+Route::delete('/quotes', 'QuoteController@destroy');
